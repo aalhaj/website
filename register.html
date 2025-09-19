@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>إنشاء حساب</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.bunny.net/">
+    <link href="https://fonts.bunny.net/css?family=IBM+Plex+Sans+Arabic:400,500,600&amp;display=swap"
+        rel="stylesheet" />
+
+    <!-- Styles / Scripts -->
+    <link rel="preload" as="style" href="build/assets/app-aA8uNpxI.css" />
+    <link rel="modulepreload" as="script" href="build/assets/app-l0sNRNKZ.js" />
+    <link rel="stylesheet" href="build/assets/app-aA8uNpxI.css" data-navigate-track="reload" />
+    <script type="module" src="build/assets/app-l0sNRNKZ.js" data-navigate-track="reload"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        function showToast(message, type = 'error') {
+            const typeConfig = {
+                error: {
+                    color: '#ef4444',
+                    icon: 'error'
+                },
+                success: {
+                    color: '#22c55e',
+                    icon: 'success'
+                }
+            };
+            Swal.fire({
+                toast: true,
+                position: 'top-start',
+                icon: typeConfig[type].icon,
+                title: message,
+                showConfirmButton: false,
+                timer: 2500,
+                timerProgressBar: true,
+                customClass: {
+                    popup: '!rounded-lg !border !border-[#e3e3e0] !shadow-lg !bg-white !text-start font-[IBM_Plex_Sans_Arabic]',
+                    icon: '!mr-3 !bg-transparent !shadow-none',
+                    timerProgressBar: `!bg-[${typeConfig[type].color}]/20`
+                },
+                showClass: {
+                    popup: 'animate__animated animate__slideInRight'
+                },
+                hideClass: {
+                    popup: 'animate__animated animate__fadeOut'
+                },
+                iconColor: typeConfig[type].color,
+                background: 'white',
+                color: '#1b1b18'
+            });
+        }
+    </script>
+    <!-- Livewire Styles -->
+    <style>
+        [wire\:loading][wire\:loading],
+        [wire\:loading\.delay][wire\:loading\.delay],
+        [wire\:loading\.inline-block][wire\:loading\.inline-block],
+        [wire\:loading\.inline][wire\:loading\.inline],
+        [wire\:loading\.block][wire\:loading\.block],
+        [wire\:loading\.flex][wire\:loading\.flex],
+        [wire\:loading\.table][wire\:loading\.table],
+        [wire\:loading\.grid][wire\:loading\.grid],
+        [wire\:loading\.inline-flex][wire\:loading\.inline-flex] {
+            display: none;
+        }
+
+        [wire\:loading\.delay\.none][wire\:loading\.delay\.none],
+        [wire\:loading\.delay\.shortest][wire\:loading\.delay\.shortest],
+        [wire\:loading\.delay\.shorter][wire\:loading\.delay\.shorter],
+        [wire\:loading\.delay\.short][wire\:loading\.delay\.short],
+        [wire\:loading\.delay\.default][wire\:loading\.delay\.default],
+        [wire\:loading\.delay\.long][wire\:loading\.delay\.long],
+        [wire\:loading\.delay\.longer][wire\:loading\.delay\.longer],
+        [wire\:loading\.delay\.longest][wire\:loading\.delay\.longest] {
+            display: none;
+        }
+
+        [wire\:offline][wire\:offline] {
+            display: none;
+        }
+
+        [wire\:dirty]:not(textarea):not(input):not(select) {
+            display: none;
+        }
+
+        :root {
+            --livewire-progress-bar-color: #2299dd;
+        }
+
+        [x-cloak] {
+            display: none !important;
+        }
+
+        [wire\:cloak] {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body class="bg-[#FDFDFC] dark:bg-black text-[#1b1b18] dark:text-[#EDEDEC]"
+    style="font-family: 'IBM Plex Sans Arabic', sans-serif;">
+
+    <!-- Header -->
+
+
+    <!-- Main Content -->
+    <div class="flex-1 flex items-center justify-center min-h-[calc(100vh-65px)] py-12 px-6">
+        <div class="grid lg:grid-cols-2 gap-12 w-full max-w-6xl items-center">
+            <!-- Left Side - Hero Content (Hidden on mobile) -->
+            <div class="hidden lg:block">
+                <div class="relative">
+                    <!-- Background Pattern -->
+                    <div
+                        class="bg-gradient-to-br from-amber-50 to-amber-100 dark:from-amber-900/20 dark:to-amber-800/20 rounded-lg p-8 shadow-[inset_0px_0px_0px_1px_rgba(26,26,0,0.16)] dark:shadow-[inset_0px_0px_0px_1px_rgba(255,250,237,0.1)]">
+                        <!-- Mock Dashboard -->
+                        <div class="space-y-4">
+                            <div
+                                class="bg-white dark:bg-[#0a0a0a] rounded-sm p-4 shadow-sm border border-[#e3e3e0] dark:border-[#1a1a1a]">
+                                <div class="flex items-center justify-between mb-3">
+                                    <div class="w-20 h-2 rounded bg-amber-600"></div>
+                                    <div class="flex space-x-1 rtl:space-x-reverse">
+                                        <div class="w-2 h-2 bg-[#dbdbd7] dark:bg-[#3E3E3A] rounded-full"></div>
+                                        <div class="w-2 h-2 bg-[#dbdbd7] dark:bg-[#3E3E3A] rounded-full"></div>
+                                        <div class="w-2 h-2 rounded-full bg-amber-600"></div>
+                                    </div>
+                                </div>
+                                <div class="space-y-2">
+                                    <div class="h-1.5 bg-[#dbdbd7] dark:bg-[#3E3E3A] rounded w-full"></div>
+                                    <div class="h-1.5 bg-[#dbdbd7] dark:bg-[#3E3E3A] rounded w-3/4"></div>
+                                    <div class="h-1.5 bg-[#dbdbd7] dark:bg-[#3E3E3A] rounded w-1/2"></div>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-4">
+                                <div
+                                    class="bg-white dark:bg-[#0a0a0a] rounded-sm p-3 shadow-sm border border-[#e3e3e0] dark:border-[#1a1a1a]">
+                                    <div class="h-1.5 bg-amber-600 rounded w-12 mb-2"></div>
+                                    <div class="h-1 bg-[#dbdbd7] dark:bg-[#3E3E3A] rounded w-full mb-1"></div>
+                                    <div class="h-1 bg-[#dbdbd7] dark:bg-[#3E3E3A] rounded w-2/3"></div>
+                                </div>
+                                <div
+                                    class="bg-white dark:bg-[#0a0a0a] rounded-sm p-3 shadow-sm border border-[#e3e3e0] dark:border-[#1a1a1a]">
+                                    <div class="h-1.5 bg-[#dbdbd7] dark:bg-[#3E3E3A] rounded w-12 mb-2"></div>
+                                    <div class="h-1 bg-[#dbdbd7] dark:bg-[#3E3E3A] rounded w-full mb-1"></div>
+                                    <div class="h-1 bg-[#dbdbd7] dark:bg-[#3E3E3A] rounded w-3/4"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text Content -->
+                <div class="mt-8 text-center lg:text-right">
+                    <h1
+                        class="text-3xl lg:text-4xl font-semibold text-[#1b1b18] dark:text-[#EDEDEC] mb-4 leading-tight">
+                        أدِر متجرك الإلكتروني
+                        <span class="text-amber-600">بسهولة</span>
+                    </h1>
+                    <p class="text-lg text-[#706f6c] dark:text-[#b3b3b3] mb-6 leading-relaxed">
+                        منصة شاملة تساعدك في إدارة مبيعاتك وعملائك ومنتجاتك من مكان واحد
+                    </p>
+
+                    <!-- Features -->
+                    <div class="grid grid-cols-2 gap-3 text-sm">
+                        <div class="flex items-center text-[#706f6c] dark:text-[#b3b3b3]">
+                            <svg class="w-4 h-4 ml-2 text-amber-600 rtl:mr-2 rtl:ml-0" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z">
+                                </path>
+                            </svg>
+                            إدارة المنتجات
+                        </div>
+                        <div class="flex items-center text-[#706f6c] dark:text-[#b3b3b3]">
+                            <svg class="w-4 h-4 ml-2 text-amber-600 rtl:mr-2 rtl:ml-0" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z">
+                                </path>
+                            </svg>
+                            تتبع الطلبات
+                        </div>
+                        <div class="flex items-center text-[#706f6c] dark:text-[#b3b3b3]">
+                            <svg class="w-4 h-4 ml-2 text-amber-600 rtl:mr-2 rtl:ml-0" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z">
+                                </path>
+                            </svg>
+                            تحليلات مفصلة
+                        </div>
+                        <div class="flex items-center text-[#706f6c] dark:text-[#b3b3b3]">
+                            <svg class="w-4 h-4 ml-2 text-amber-600 rtl:mr-2 rtl:ml-0" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z">
+                                </path>
+                            </svg>
+                            دعم العملاء
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side - Login Form -->
+            <div class="w-full max-w-md mx-auto">
+                <!-- Logo and Title -->
+                <div class="mb-8 text-center">
+                    <div class="text-2xl font-semibold text-[#1b1b18] dark:text-[#EDEDEC] mb-2">
+                        <span class="text-amber-600">aalhaj</span>
+                    </div>
+                    <h2 class="text-xl font-medium text-[#1b1b18] dark:text-[#EDEDEC] mb-2">
+                        إنشاء حساب
+                    </h2>
+                    <p class="text-[#706f6c] dark:text-[#b3b3b3] text-sm">
+                        أنشئ حسابك للبدء في إدارة متجرك الإلكتروني
+                    </p>
+                </div>
+
+                <form method="POST" action="/register" class="space-y-6">
+                    <input type="hidden" name="_token" value="mQQttSE3BWjKBcF4HEViAvT4lBM17NuiJX8Zzeyu"
+                        autocomplete="off">
+
+                    <!-- Full Name Field -->
+                    <div class="space-y-2">
+                        <label for="name" class="block text-sm font-medium text-[#1b1b18] dark:text-[#EDEDEC]">
+                            الاسم الكامل
+                        </label>
+                        <input type="text" name="name" id="name" required autofocus value=""
+                            class="w-full px-4 py-3 border border-[#e3e3e0] dark:border-[#1a1a1a] bg-white dark:bg-[#0a0a0a] text-[#1b1b18] dark:text-[#EDEDEC] rounded-sm focus:outline-none focus:ring-2 focus:ring-amber-600/20 focus:border-amber-600 transition-colors"
+                            placeholder="الاسم الكامل">
+                    </div>
+
+                    <!-- Email Field -->
+                    <div class="space-y-2">
+                        <label for="email" class="block text-sm font-medium text-[#1b1b18] dark:text-[#EDEDEC]">
+                            البريد الإلكتروني
+                        </label>
+                        <input type="email" name="email" id="email" required value="" autocomplete="email"
+                            class="w-full px-4 py-3 border border-[#e3e3e0] dark:border-[#1a1a1a] bg-white dark:bg-[#0a0a0a] text-[#1b1b18] dark:text-[#EDEDEC] rounded-sm focus:outline-none focus:ring-2 focus:ring-amber-600/20 focus:border-amber-600 transition-colors"
+                            placeholder="example@domain.com">
+                    </div>
+
+                    <!-- Password Field -->
+                    <div class="space-y-2">
+                        <label for="password" class="block text-sm font-medium text-[#1b1b18] dark:text-[#EDEDEC]">
+                            كلمة المرور
+                        </label>
+                        <input type="password" name="password" id="password" required autocomplete="new-password"
+                            class="w-full px-4 py-3 border border-[#e3e3e0] dark:border-[#1a1a1a] bg-white dark:bg-[#0a0a0a] text-[#1b1b18] dark:text-[#EDEDEC] rounded-sm focus:outline-none focus:ring-2 focus:ring-amber-600/20 focus:border-amber-600 transition-colors"
+                            placeholder="••••••••">
+                    </div>
+
+                    <!-- Password Confirmation Field -->
+                    <div class="space-y-2">
+                        <label for="password_confirmation"
+                            class="block text-sm font-medium text-[#1b1b18] dark:text-[#EDEDEC]">
+                            تأكيد كلمة المرور
+                        </label>
+                        <input type="password" name="password_confirmation" id="password_confirmation" required
+                            autocomplete="new-password"
+                            class="w-full px-4 py-3 border border-[#e3e3e0] dark:border-[#1a1a1a] bg-white dark:bg-[#0a0a0a] text-[#1b1b18] dark:text-[#EDEDEC] rounded-sm focus:outline-none focus:ring-2 focus:ring-amber-600/20 focus:border-amber-600 transition-colors"
+                            placeholder="••••••••">
+                    </div>
+
+                    <!-- Terms and Privacy Policy -->
+
+                    <!-- Register Button -->
+                    <button type="submit"
+                        class="w-full inline-flex items-center justify-center px-6 py-3 bg-black text-white font-medium rounded-sm hover:bg-gray-800 transition-colors group">
+                        إنشاء حساب
+                        <svg class="w-5 h-5 mr-2 rtl:ml-2 rtl:mr-0 transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                        </svg>
+                    </button>
+
+                    <!-- Login Link -->
+                    <div class="text-center">
+                        <p class="text-sm text-[#706f6c] dark:text-[#b3b3b3]">
+                            لديك حساب بالفعل؟
+                            <a href="login.html" class="text-amber-600 hover:text-amber-700 transition-colors">
+                                سجل الدخول الآن
+                            </a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="livewire/livewire.mind557.js" data-csrf="mQQttSE3BWjKBcF4HEViAvT4lBM17NuiJX8Zzeyu"
+        data-update-uri="/livewire/update" data-navigate-once="true"></script>
+</body>
+
+
+</html>
